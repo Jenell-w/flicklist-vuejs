@@ -9,7 +9,7 @@
 </head>
 <body>
   <div id="mount-target">
-    <header>
+    <header id="big-header">
       <h1>FlickList</h1>
       <p>Keep a list of all the movies you've been meaning to watch.</p>
     </header>
@@ -21,15 +21,45 @@
       </header>
 
       <ul>
+        <li 
+        v-for="movie in watchlistItems"
+        class="item-watchlist"
+        >
+        <p>{{ movie.title }}</p>
         <!--
-        TODO 7
+        TODO 7 (done?)
         Make an <li> for each movie in watchList
         -->
+        </li>
       </ul>
     </section>
 
+    <section id="section-browse">
+      <header>
+        <h2>Browse Movies</h2>
+        <form>
+          <input type="text" v-model:searchTerm/>
+          <input type="value" value="search" @click.prevent="searchMovies(searchTerm)"/>
+        </form>
+      </header>
+
+      <ul>
+        <li v-for="movie in browseItems">
+          <hr />
+
+          <h4>{{ movie.title}}</h4>
+          <button
+             @click="addToWatchlist(movie)"
+             :disabled="watchlistItems.includes(movie)"
+          >
+        Add to Watchlist
+        </button>
+        <p>{{ movie.overview }}</p>
+        </li>
+      </ul>
+    </section>
     <!--
-    TODO 1
+    TODO 1(done)
     Add another section, very similar to the one above, for the user to browse movies
     Give it an id of "section-browse"
     It should display "Browse Movies" in large text
@@ -43,7 +73,7 @@
     <!--
     TODO 4
     Inside each of those list items, add a button that
-    says "Add to Watchlist"
+    says "Add to Watchlist"  
     -->
     <!--
     TODO 6
