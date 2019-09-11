@@ -12,8 +12,8 @@ var flicklistView = new Vue({
 			// Whenever it changes, Vue will automatically re-render
 			// the html for us.
 			watchlistItems: [],
-	browseItems: [],
-	searchTerm: null,
+	        browseItems: [],
+	        searchTerm: null
 			};
 		},
 		methods: {
@@ -24,7 +24,7 @@ var flicklistView = new Vue({
 			 */
 				fetch(`${api.root}/discover/movie?api_key=${api.token}`)
 					.then(resp => resp.ok ? resp.json() : Promise.reject(resp))
-					.then((response => {
+					.then(response => {
 						console.log("We got a response from the Movie DB");
 						console.log(response);
 

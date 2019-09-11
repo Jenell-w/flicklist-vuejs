@@ -38,8 +38,8 @@
       <header>
         <h2>Browse Movies</h2>
         <form>
-          <input type="text" v-model:searchTerm/>
-          <input type="value" value="search" @click.prevent="searchMovies(searchTerm)"/>
+          <input type="text" v-model="searchTerm" />
+          <input type="submit" value="search" @click.prevent="searchMovies(searchTerm)"/>
         </form>
       </header>
 
